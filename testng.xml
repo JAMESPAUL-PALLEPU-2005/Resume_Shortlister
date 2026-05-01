@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ProfileFilter">
+    <test name="integrationTests.RulesIntegrationTest">
+        <packages>
+            <package name="test.java/*Test.java"></package>
+        </packages>
+    </test>
+</suite>

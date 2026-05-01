@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ui.Controller"
+      styleClass="root-container"
+      stylesheets="@layoutstyles.css"
+      spacing="0"
+      fillWidth="true">
+
+    <!-- ═══════════════════ HEADER ═══════════════════ -->
+    <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="12">
+        <Label text="📄  Resume Classifier" styleClass="app-title" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="v2.1" styleClass="version-label" />
+    </HBox>
+
+    <!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
+    <VBox styleClass="content-area" spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Alert / Error Label -->
+        <Label fx:id="selectUserInputAlertLabel" styleClass="alert-label" wrapText="true" />
+
+        <!-- ── Directory Selection Card ── -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Select Resume Directory" styleClass="card-title" />
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button id="browseBtn"
+                        text="📁  Browse"
+                        onAction="#browseProfileDirectory"
+                        styleClass="btn,btn-primary" />
+                <TextField fx:id="directoryTextField"
+                           promptText="No directory selected"
+                           styleClass="text-input"
+                           editable="false"
+                           HBox.hgrow="ALWAYS" />
+            </HBox>
+        </VBox>
+
+        <!-- ── Skills Configuration ── -->
+        <VBox styleClass="card" spacing="14" VBox.vgrow="ALWAYS">
+            <Label text="Skill Criteria &amp; Weights" styleClass="card-title" />
+            <ScrollPane fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        vbarPolicy="AS_NEEDED"
+                        styleClass="skills-scroll"
+                        VBox.vgrow="ALWAYS">
+                <VBox fx:id="mainVBox" fillWidth="true" spacing="16" styleClass="skills-container" />
+            </ScrollPane>
+        </VBox>
+
+        <!-- ── Action Bar ── -->
+        <HBox styleClass="action-bar" spacing="16" alignment="CENTER_LEFT">
+            <Button fx:id="execute"
+                    id="executeBtn"
+                    text="▶  Execute"
+                    onAction="#executeRule"
+                    styleClass="btn,btn-execute" />
+            <ProgressIndicator fx:id="progressIndicator"
+                               prefWidth="28" prefHeight="28"
+                               visible="false"
+                               styleClass="progress" />
+            <Label fx:id="executionMsg" styleClass="success-label" wrapText="true" />
+        </HBox>
+
+        <!-- ═══════════════ RANKING RESULTS (hidden until execution) ═══════════════ -->
+        <VBox fx:id="resultsCard" styleClass="card,results-card" spacing="14"
+              visible="false" managed="false" VBox.vgrow="ALWAYS">
+
+            <!-- Results Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="results-header">
+                <Label text="📊" styleClass="results-icon" />
+                <Label text="Ranking Results" styleClass="results-title" />
+                <HBox styleClass="results-count-badge" alignment="CENTER">
+                    <Label fx:id="resultsCountLabel" text="0" styleClass="results-count-text" />
+                </HBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="▼ Sorted by score (highest first)" styleClass="results-subtitle" />
+            </HBox>
+
+            <!-- ── SplitPane for Results + Preview ── -->
+            <SplitPane dividerPositions="0.6" VBox.vgrow="ALWAYS" styleClass="preview-split-pane" style="-fx-background-color: transparent; -fx-padding: 0;">
+                
+                <!-- Ranking TableView -->
+                <TableView fx:id="resultsTable"
+                           styleClass="results-tableview"
+                           prefHeight="340"
+                           minHeight="200" />
+
+                <!-- Resume Preview Panel -->
+                <VBox spacing="10" styleClass="preview-pane" style="-fx-background-color: #ffffff; -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
+                    <Label fx:id="previewHeaderLabel" text="Select a candidate to preview" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2d3436;" />
+                    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;">
+                        <TextFlow fx:id="previewTextFlow" style="-fx-padding: 4; -fx-line-spacing: 4;" />
+                    </ScrollPane>
+                </VBox>
+            </SplitPane>
+        </VBox>
+
+    </VBox>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <HBox styleClass="footer-bar" alignment="CENTER">
+        <Label text="Resume Classifier • Built with JavaFX 17" styleClass="footer-text" />
+    </HBox>
+
+</VBox>

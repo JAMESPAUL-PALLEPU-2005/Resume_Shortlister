@@ -1,0 +1,9 @@
+.vBox {
+    -fx-background-color: #fdd835;
+    -fx-padding: 5;
+    -fx-spacing: 10;
+}
+
+.choice-box {
+    -fx-pref-width: 222;
+}

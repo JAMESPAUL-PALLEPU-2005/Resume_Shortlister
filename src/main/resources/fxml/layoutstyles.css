@@ -1,0 +1,598 @@
+/* ═══════════════════════════════════════════════════════
+   Resume Classifier — Modern Dark Theme
+   Color palette: Deep navy + purple accent + soft whites
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Global Root ── */
+.root-container {
+    -fx-background-color: #0f0e17;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Header Bar ── */
+.header-bar {
+    -fx-background-color: linear-gradient(to right, #1a1a2e, #302b63);
+    -fx-padding: 16 24 16 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 4);
+}
+
+.app-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.3), 6, 0, 0, 0);
+}
+
+.version-label {
+    -fx-text-fill: rgba(255,255,255,0.35);
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ── Content Area ── */
+.content-area {
+    -fx-padding: 20 24 12 24;
+    -fx-background-color: #0f0e17;
+}
+
+/* ── Cards ── */
+.card {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 10;
+    -fx-padding: 18 20 18 20;
+    -fx-border-color: rgba(108,99,255,0.15);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 3);
+}
+
+.card-title {
+    -fx-text-fill: #a7a9be;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase;
+}
+
+/* ── Buttons ── */
+.btn {
+    -fx-background-radius: 6;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-border-width: 0;
+}
+
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #6c63ff, #5a52d5);
+    -fx-text-fill: #ffffff;
+}
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #7b73ff, #6c63ff);
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.5), 10, 0, 0, 2);
+}
+.btn-primary:pressed {
+    -fx-background-color: #4a42c5;
+}
+
+.btn-execute {
+    -fx-background-color: linear-gradient(to bottom right, #00b894, #00a381);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10 28 10 28;
+}
+.btn-execute:hover {
+    -fx-background-color: linear-gradient(to bottom right, #1dd1a1, #00b894);
+    -fx-effect: dropshadow(gaussian, rgba(0,184,148,0.5), 10, 0, 0, 2);
+}
+.btn-execute:pressed {
+    -fx-background-color: #009070;
+}
+.btn-execute:disabled {
+    -fx-background-color: #2d3436;
+    -fx-text-fill: #636e72;
+    -fx-opacity: 0.7;
+}
+
+.btn-secondary {
+    -fx-background-color: rgba(108,99,255,0.15);
+    -fx-text-fill: #6c63ff;
+}
+.btn-secondary:hover {
+    -fx-background-color: rgba(108,99,255,0.25);
+}
+
+.btn-danger {
+    -fx-background-color: rgba(255,71,87,0.12);
+    -fx-text-fill: #ff4757;
+}
+.btn-danger:hover {
+    -fx-background-color: rgba(255,71,87,0.25);
+}
+
+.btn-small {
+    -fx-padding: 5 12 5 12;
+    -fx-font-size: 11px;
+}
+
+/* ── Text Fields ── */
+.text-input {
+    -fx-background-color: #16213e;
+    -fx-text-fill: #e2e2e2;
+    -fx-prompt-text-fill: #555b6e;
+    -fx-background-radius: 6;
+    -fx-border-color: rgba(108,99,255,0.2);
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+}
+.text-input:focused {
+    -fx-border-color: #6c63ff;
+    -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.3), 8, 0, 0, 0);
+}
+
+/* ── Choice Box ── */
+.choice-box {
+    -fx-background-color: #16213e;
+    -fx-mark-color: #6c63ff;
+    -fx-background-radius: 6;
+    -fx-border-color: rgba(108,99,255,0.2);
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-pref-width: 220;
+}
+.choice-box .label {
+    -fx-text-fill: #e2e2e2;
+    -fx-font-size: 12px;
+}
+.choice-box .open-button .arrow {
+    -fx-background-color: #6c63ff;
+}
+.choice-box .context-menu {
+    -fx-background-color: #1a1a2e;
+    -fx-border-color: rgba(108,99,255,0.3);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 4;
+}
+.choice-box .menu-item {
+    -fx-background-color: transparent;
+}
+.choice-box .menu-item .label {
+    -fx-text-fill: #c8c8d0;
+    -fx-padding: 6 12 6 12;
+}
+.choice-box .menu-item:hover {
+    -fx-background-color: rgba(108,99,255,0.2);
+}
+.choice-box .menu-item:hover .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* ── Skill Set Cards ── */
+.skill-set-card {
+    -fx-background-color: rgba(22,33,62,0.6);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(108,99,255,0.1);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+}
+
+.skill-set-header {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.skill-row {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 6 0 6 20;
+}
+
+/* ── Labels ── */
+.section-label {
+    -fx-text-fill: #d1d1e0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.field-label {
+    -fx-text-fill: #a7a9be;
+    -fx-font-size: 12px;
+}
+
+.alert-label {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.success-label {
+    -fx-text-fill: #00b894;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* ── Scroll Pane ── */
+.skills-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.skills-scroll .viewport {
+    -fx-background-color: transparent;
+}
+.skills-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+}
+.skills-scroll .scroll-bar:vertical .track {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-background-radius: 4;
+}
+.skills-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(108,99,255,0.3);
+    -fx-background-radius: 4;
+}
+.skills-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(108,99,255,0.5);
+}
+.skills-scroll .scroll-bar:vertical .increment-button,
+.skills-scroll .scroll-bar:vertical .decrement-button {
+    -fx-pref-height: 0;
+    -fx-padding: 0;
+}
+
+.skills-container {
+    -fx-padding: 4;
+}
+
+/* ── Action Bar ── */
+.action-bar {
+    -fx-padding: 6 0 0 0;
+}
+
+/* ── Progress Indicator ── */
+.progress {
+    -fx-progress-color: #00b894;
+}
+.progress .indicator {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+/* ── Footer ── */
+.footer-bar {
+    -fx-background-color: #0a0a12;
+    -fx-padding: 10 24 10 24;
+    -fx-border-color: rgba(108,99,255,0.08);
+    -fx-border-width: 1 0 0 0;
+}
+
+.footer-text {
+    -fx-text-fill: rgba(255,255,255,0.2);
+    -fx-font-size: 11px;
+}
+
+/* ── Tooltip ── */
+.tooltip {
+    -fx-background-color: #1a1a2e;
+    -fx-text-fill: #e2e2e2;
+    -fx-background-radius: 4;
+    -fx-border-color: rgba(108,99,255,0.3);
+    -fx-border-radius: 4;
+    -fx-font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Results Section — TableView Ranking Display
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Results Card ── */
+.results-card {
+    -fx-border-color: rgba(0,184,148,0.25);
+    -fx-padding: 20 22 22 22;
+}
+
+/* ── Results Header ── */
+.results-header {
+    -fx-padding: 0 0 8 0;
+}
+
+.results-icon {
+    -fx-font-size: 20px;
+}
+
+.results-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.results-count-badge {
+    -fx-background-color: rgba(0,184,148,0.2);
+    -fx-background-radius: 12;
+    -fx-padding: 3 12 3 12;
+    -fx-border-color: rgba(0,184,148,0.35);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+.results-count-text {
+    -fx-text-fill: #00b894;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.results-subtitle {
+    -fx-text-fill: #555b6e;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ══════════════════════════════════════════
+   TableView — Core Structure
+   ══════════════════════════════════════════ */
+
+.results-tableview {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(108,99,255,0.14);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-padding: 0;
+}
+
+/* Remove the default focus ring */
+.results-tableview:focused {
+    -fx-background-color: transparent;
+}
+
+/* ── Column Headers ── */
+.results-tableview .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #222247, #1b1b38);
+    -fx-background-radius: 10 10 0 0;
+}
+
+.results-tableview .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.results-tableview .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(108,99,255,0.12);
+    -fx-border-width: 0 1 1 0;
+    -fx-padding: 12 16 12 16;
+}
+
+.results-tableview .column-header .label {
+    -fx-text-fill: #a7a9be;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-transform: uppercase;
+}
+
+/* Last column — no right border */
+.results-tableview .column-header:last-visible {
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ══════════════════════════════════════════
+   Table Rows — Spacing, Stripes, Highlights
+   ══════════════════════════════════════════ */
+
+/* Base row */
+.results-tableview .table-row-cell {
+    -fx-background-color: rgba(15,14,23,0.55);
+    -fx-border-color: rgba(255,255,255,0.035);
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 2 0 2 0;
+    -fx-table-cell-border-color: rgba(108,99,255,0.06);
+}
+
+/* Alternating Striped Rows */
+.results-tableview .table-row-cell:odd {
+    -fx-background-color: rgba(22,33,62,0.4);
+}
+
+.results-tableview .table-row-cell:even {
+    -fx-background-color: rgba(15,14,23,0.55);
+}
+
+/* ── Top 3 Row Highlight Bands ── */
+.results-tableview .top-row-1 {
+    -fx-background-color: rgba(255,215,0,0.08);
+    -fx-border-color: rgba(255,215,0,0.15) rgba(255,255,255,0.035) rgba(255,255,255,0.035) #ffd700;
+    -fx-border-width: 0 0 1 3;
+}
+.results-tableview .top-row-1:hover {
+    -fx-background-color: rgba(255,215,0,0.14);
+}
+
+.results-tableview .top-row-2 {
+    -fx-background-color: rgba(192,192,192,0.06);
+    -fx-border-color: rgba(192,192,192,0.12) rgba(255,255,255,0.035) rgba(255,255,255,0.035) #c0c0c0;
+    -fx-border-width: 0 0 1 3;
+}
+.results-tableview .top-row-2:hover {
+    -fx-background-color: rgba(192,192,192,0.12);
+}
+
+.results-tableview .top-row-3 {
+    -fx-background-color: rgba(205,127,50,0.06);
+    -fx-border-color: rgba(205,127,50,0.12) rgba(255,255,255,0.035) rgba(255,255,255,0.035) #cd7f32;
+    -fx-border-width: 0 0 1 3;
+}
+.results-tableview .top-row-3:hover {
+    -fx-background-color: rgba(205,127,50,0.12);
+}
+
+/* ── Row Hover (non-highlighted rows) ── */
+.results-tableview .table-row-cell:hover {
+    -fx-background-color: rgba(108,99,255,0.1);
+}
+
+/* ── Row Selection ── */
+.results-tableview .table-row-cell:selected {
+    -fx-background-color: rgba(108,99,255,0.2);
+}
+
+.results-tableview .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+}
+
+/* ── Empty rows (no data) ── */
+.results-tableview .table-row-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.results-tableview .table-row-cell:empty .table-cell {
+    -fx-border-color: transparent;
+}
+
+/* ══════════════════════════════════════════
+   Table Cells — Spacing & Typography
+   ══════════════════════════════════════════ */
+
+.results-tableview .table-cell {
+    -fx-text-fill: #d1d1e0;
+    -fx-font-size: 13px;
+    -fx-padding: 8 14 8 14;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: transparent transparent transparent rgba(108,99,255,0.07);
+    -fx-border-width: 0 0 0 1;
+}
+
+/* First cell in each row — no left border */
+.results-tableview .table-cell:first-child {
+    -fx-border-width: 0;
+}
+
+/* ── Rank Column — Centered ── */
+.results-tableview .rank-column .table-cell {
+    -fx-alignment: CENTER;
+    -fx-font-size: 16px;
+    -fx-padding: 8 8 8 8;
+}
+
+/* ── Top 3 Medal Styling ── */
+.rank-top1 {
+    -fx-font-size: 18px;
+}
+.rank-top2 {
+    -fx-font-size: 17px;
+}
+.rank-top3 {
+    -fx-font-size: 16px;
+}
+
+/* ── Name Column ── */
+.results-tableview .name-column .table-cell {
+    -fx-font-size: 13px;
+    -fx-padding: 8 16 8 16;
+}
+
+/* ── Score Column — Centered ── */
+.results-tableview .score-column .table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 6 10 6 10;
+}
+
+/* ── Skills Column ── */
+.results-tableview .skills-column .table-cell {
+    -fx-padding: 6 12 6 12;
+}
+
+/* ══════════════════════════════════════════
+   Skill Chip Badges (inside FlowPane)
+   ══════════════════════════════════════════ */
+
+.skill-chip {
+    -fx-background-color: rgba(108,99,255,0.12);
+    -fx-text-fill: #b8b4ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: normal;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(108,99,255,0.2);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+/* ══════════════════════════════════════════
+   TableView — Scrollbars
+   ══════════════════════════════════════════ */
+
+.results-tableview .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+    -fx-padding: 2;
+}
+
+.results-tableview .scroll-bar:vertical .track {
+    -fx-background-color: rgba(255,255,255,0.02);
+    -fx-background-radius: 4;
+}
+
+.results-tableview .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0,184,148,0.35);
+    -fx-background-radius: 4;
+}
+
+.results-tableview .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(0,184,148,0.55);
+}
+
+.results-tableview .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-height: 8;
+    -fx-padding: 2;
+}
+
+.results-tableview .scroll-bar:horizontal .track {
+    -fx-background-color: rgba(255,255,255,0.02);
+    -fx-background-radius: 4;
+}
+
+.results-tableview .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0,184,148,0.35);
+    -fx-background-radius: 4;
+}
+
+.results-tableview .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: rgba(0,184,148,0.55);
+}
+
+.results-tableview .scroll-bar .increment-button,
+.results-tableview .scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+    -fx-padding: 0;
+}
+
+.results-tableview .scroll-bar .increment-arrow,
+.results-tableview .scroll-bar .decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+/* ── Placeholder (when no data) ── */
+.results-tableview .placeholder .label {
+    -fx-text-fill: #555b6e;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+/* ── Tooltip styling ── */
+.results-tableview .tooltip {
+    -fx-background-color: #1a1a2e;
+    -fx-text-fill: #e2e2e2;
+    -fx-background-radius: 6;
+    -fx-border-color: rgba(108,99,255,0.3);
+    -fx-border-radius: 6;
+    -fx-padding: 8 14 8 14;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 8, 0, 0, 3);
+}
